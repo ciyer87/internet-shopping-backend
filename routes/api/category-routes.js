@@ -5,7 +5,14 @@ const { Category, Product } = require('../../models');
 
 router.get('/', (req, res) => {
   // find all categories
-  Category.findAll()
+  Category.findAll({
+    include: [
+      {
+        model: Product,
+        attributes: ['product_name', 'price']
+      }
+    ]
+  })
     .then(dbPostData => res.json(dbPostData))
     .catch(err => {
       console.log(err);
@@ -16,12 +23,20 @@ router.get('/', (req, res) => {
 });
 
 
+
+
 // find one category by its `id` value
 router.get('/:id', (req, res) => {
     Category.findOne({
         where: {
           id: req.params.id
-        }
+        },
+        include: [
+          {
+            model: Product,
+            attributes: ['product_name', 'price']
+          }
+        ] 
     })
         .then(dbUserData => {
           if (!dbUserData) {
