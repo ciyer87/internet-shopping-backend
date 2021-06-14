@@ -4,7 +4,9 @@ Back end for an e-commerce site using express.js, MySQL2 and Sequelize.
 
 # Installation
 
-Clone the repositry from GitHub and open using Visual Studio Code.
+* Clone the repositry from GitHub and open using Visual Studio Code.
+* run the command npm install to install dependencies
+* Locally create .env file containing DB_NAME with database name, DB_USER with MySQL username (or 'root'), and DB_PW with MySQL password. Run npm run seed. Then run node server (npm start)
 
 # Usage
 
